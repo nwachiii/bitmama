@@ -6,7 +6,6 @@ import {
 	Button,
 	HStack,
 	Avatar,
-	Divider,
 	Heading,
 	WrapItem,
 	AlertIcon,
