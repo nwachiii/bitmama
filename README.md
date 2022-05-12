@@ -41,4 +41,4 @@ You can find the docs here: [Chakra UI](https://chakra-ui.com/docs/); I used cha
 
 6. Username should be case insensitive
 
-**Project was done locally, pushed to github and deployed on netlify**
+**Note: Project was done locally, pushed to github and deployed on netlify**
