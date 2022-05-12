@@ -61,7 +61,7 @@ export const UserDetails = (Props) => {
 							Welcome, {username}!
 						</Heading>
 
-						<VStack maxW={480} spacing={2} alignItems='left'>
+						<VStack maxW={480} w="100%" spacing={2} alignItems='left'>
 							<Text>Timeout: <strong>{'60 seconds (total time)'}</strong></Text>
 							<Text>Total active time: <strong>{msToTime(getTotalActiveTime())}</strong></Text>
 							{getTotalIdleTime() > 0 ? (

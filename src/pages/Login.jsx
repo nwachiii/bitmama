@@ -1,16 +1,18 @@
 import {
 	Center,
 	Input,
+	Image,
+	Text,
+	Button,
 	VStack,
 	FormLabel,
 	InputGroup,
 	FormControl,
 	useColorMode,
+	FormHelperText,
+	FormErrorMessage,
 	InputLeftElement,
 	useColorModeValue,
-	Image,
-	Text,
-	Button
 } from '@chakra-ui/react';
 import {FaRegUser} from 'react-icons/fa';
 import {useNavigate} from 'react-router-dom';
@@ -36,15 +38,21 @@ export const Login = () => {
 		setName(e.target.value);
 	};
 
-	useEffect(() => {
-		setName(LocalStorageuserName ? LocalStorageuserName : '');
-	}, [LocalStorageuserName]);
+	const isError = name.length === 0
+
+	useEffect(
+		() => {
+			setName(LocalStorageuserName ? LocalStorageuserName : '');
+		},
+		[LocalStorageuserName]
+	);
 
 	const color = useColorModeValue('white', 'gray.800');
 	const {colorMode} = useColorMode();
 
 	return (
 		<Center
+			px="1em"
 			minH='100vh'
 			color={color}
 			bgGradient={colorMode === 'light' ? 'linear(to-br, black, teal.600)' : 'linear(to-tr, red.100, white)'}>
@@ -60,7 +68,7 @@ export const Login = () => {
 						USER LOGIN
 					</Text>
 				</Center>
-				<FormControl isRequired>
+				<FormControl isInvalid={isError} isRequired>
 					<FormLabel htmlFor='first-name'>Username</FormLabel>
 					<InputGroup>
 						<InputLeftElement pointerEvents='none' children={<FaRegUser color='gray.300' />} />
@@ -72,6 +80,11 @@ export const Login = () => {
 							placeholder='Username'
 						/>
 					</InputGroup>
+					{!isError ? (
+						<FormHelperText color="gray.600" textAlign="center">Your username is all you need to get started</FormHelperText>
+					) : (
+						<FormErrorMessage>Username is required.</FormErrorMessage>
+					)}
 				</FormControl>
 				<Button
 					p={6}
@@ -80,9 +93,9 @@ export const Login = () => {
 					bg={theme.brand.blue}
 					onClick={handleSignIn}
 					_hover={{
-						bg          : '#FFF',
-						color       : '#03a438',
-						border : '2px solid #03a438',
+						bg     : '#FFF',
+						color  : '#03a438',
+						border : '2px solid #03a438'
 					}}>
 					Login
 				</Button>
