@@ -1,15 +1,16 @@
 import {
-	Alert,
-	AlertIcon,
-	Avatar,
-	AvatarBadge,
-	Button,
-	Heading,
-	HStack,
 	Text,
-	VStack,
 	Wrap,
-	WrapItem
+	Alert,
+	VStack,
+	Button,
+	HStack,
+	Avatar,
+	Divider,
+	Heading,
+	WrapItem,
+	AlertIcon,
+	AvatarBadge,
 } from '@chakra-ui/react';
 import React from 'react';
 import {msToTime} from '../helpers';
@@ -19,7 +20,7 @@ import {ActiveSessions} from './ActiveSessions';
 export const UserDetails = (Props) => {
 	const {username, isPrompted, handleLogout, handleStillHere, getTotalActiveTime, getTotalIdleTime} = Props;
 	return (
-		<Wrap spacing='30px' alignSelf='center' alignItems='center' py={{base: 150, md: 180}}>
+		<Wrap spacing='70px' alignSelf='center' alignItems='center' py={{base: 150, md: 180}}>
 			<WrapItem>
 				{isPrompted() ? (
 					<CustomBox>
@@ -30,7 +31,7 @@ export const UserDetails = (Props) => {
 							<strong>away (Idle)</strong>
 						</HStack>
 						<Heading as='h3' bgClip='text' bgGradient='linear(to-l, #7928CA, #FF0080)'>
-							{username}! Still there? 
+							{username}! Still there?
 						</Heading>
 
 						<Alert maxW={480} borderRadius='md' status='warning'>
@@ -49,7 +50,7 @@ export const UserDetails = (Props) => {
 						</Button>
 					</CustomBox>
 				) : (
-					<CustomBox px="1.2rem">
+					<CustomBox px='1.2rem'>
 						<HStack>
 							<Avatar>
 								<AvatarBadge boxSize='1.25em' bg='green.500' />
@@ -57,26 +58,49 @@ export const UserDetails = (Props) => {
 							<strong>online (active)</strong>
 						</HStack>
 
-						<Heading maxW={480} textAlign='center' as='h3' bgClip='text' bgGradient='linear(to-l, #7928CA, #FF0080)'>
+						<Heading
+							maxW={480}
+							textAlign='center'
+							as='h3'
+							bgClip='text'
+							bgGradient='linear(to-l, #7928CA, #FF0080)'>
 							Welcome, {username}!
 						</Heading>
+						<Text maxW={480} textAlign='center' bgClip='text' bgGradient='linear(to-r, #7928CA, #FF0080)'>
+							Thank you for choosing Bitmama! where you can instantly buy and sell crypto at the best
+							prices
+						</Text>
 
-						<VStack  maxW="480px" w="100%" spacing={2} alignItems='left'>
-							<Text >Timeout: <strong>{'60 seconds (total time)'}</strong></Text>
-							<Text>Total active time: <strong>{msToTime(getTotalActiveTime())}</strong></Text>
-							{getTotalIdleTime() > 0 ? (
-								<div style={{textAlign: 'center'}}>
-									<Text w="100%">
-										Last seen (Total Idle Time):{' '}
-										<strong>
-											<i>{msToTime(getTotalIdleTime(), 'ago')}</i>
-										</strong>
-										{}
-									</Text>
-								</div>
-							) : (
-								<Text>Total Idle Time: starts counting when user is idle</Text>
-							)}
+						<VStack spacing={2} alignItems='left'>
+							<Alert maxW={480} borderRadius='md' status='info'>
+								<AlertIcon />
+								You are now signed in. You can also sign in with a different account on a new tab.
+							</Alert>
+							<Alert borderRadius='md' status='info'>
+								<AlertIcon />
+								If no activity is detected on each tab in 60 seconds, you will be logged out
+								automatically.
+							</Alert>
+							<Alert maxW={480} borderRadius='md' status='success'>
+								<AlertIcon />
+
+								<Text>
+									Total active time: <strong>{msToTime(getTotalActiveTime())}</strong> <br />
+									{getTotalIdleTime() > 0 ? (
+										<div style={{textAlign: 'center'}}>
+											<Text w='100%'>
+												Last seen (Total Idle Time):{' '}
+												<strong>
+													<i>{msToTime(getTotalIdleTime(), 'ago')}</i>
+												</strong>
+												{}
+											</Text>
+										</div>
+									) : (
+										<Text>Total Idle Time: starts counting when user is idle</Text>
+									)}
+								</Text>
+							</Alert>
 						</VStack>
 
 						<Button
@@ -91,7 +115,8 @@ export const UserDetails = (Props) => {
 					</CustomBox>
 				)}
 			</WrapItem>
-			<WrapItem alignSelf="center">
+			
+			<WrapItem alignSelf='center'>
 				<ActiveSessions />
 			</WrapItem>
 		</Wrap>

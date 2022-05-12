@@ -5,7 +5,8 @@ export const CustomBox = ({children}) => {
 	return (
 		<VStack
 			py={50}
-			maxW={700}
+			w="100%"
+			maxW={480}
 			spacing={6}
 			rounded='lg'
 			boxShadow='2xl'
