@@ -48,7 +48,7 @@ export const Home = () => {
 				clearInterval(interval);
 			};
 		},
-		[isPrompted, remaining]
+		[isPrompted, remaining, getRemainingTime]
 	);
 
 	return (
