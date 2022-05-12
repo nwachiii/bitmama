@@ -48,7 +48,7 @@ export const Home = () => {
 				clearInterval(interval);
 			};
 		},
-		[isPrompted]
+		[isPrompted, remaining]
 	);
 
 	return (

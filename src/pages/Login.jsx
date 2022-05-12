@@ -38,7 +38,7 @@ export const Login = () => {
 
 	useEffect(() => {
 		setName(LocalStorageuserName ? LocalStorageuserName : '');
-	}, []);
+	}, [LocalStorageuserName]);
 
 	const color = useColorModeValue('white', 'gray.800');
 	const {colorMode} = useColorMode();
