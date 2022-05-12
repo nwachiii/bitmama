@@ -6,7 +6,7 @@ import {ToggleThemeIcon} from './ToggleThemeIcon';
 
 export const Header = () => {
 	return (
-		<motion.div initial={{y: 20}} animate={{y: 0}} transition={{delay: 0.2, type: 'spring', stiffness: 150}}>
+		<motion.div initial={{y: 30}} animate={{y: 0}} transition={{delay: 0.2, type: 'spring', stiffness: 150}} >
 			<Flex
 				p={3}
 				mt={2}

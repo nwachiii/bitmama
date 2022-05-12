@@ -57,8 +57,8 @@ export const UserDetails = (Props) => {
 							<strong>online (active)</strong>
 						</HStack>
 
-						<Heading as='h3' bgClip='text' bgGradient='linear(to-l, #7928CA, #FF0080)'>
-							Welcome! {username}
+						<Heading textAlign='center' as='h3' bgClip='text' bgGradient='linear(to-l, #7928CA, #FF0080)'>
+							Welcome, {username}!
 						</Heading>
 
 						<VStack maxW={480} spacing={2} alignItems='left'>
@@ -91,7 +91,7 @@ export const UserDetails = (Props) => {
 					</CustomBox>
 				)}
 			</WrapItem>
-			<WrapItem>
+			<WrapItem alignSelf="center">
 				<ActiveSessions />
 			</WrapItem>
 		</Wrap>
