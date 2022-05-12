@@ -45,7 +45,7 @@ export const Login = () => {
 
 	return (
 		<Center
-			h='100vh'
+			minH='100vh'
 			color={color}
 			bgGradient={colorMode === 'light' ? 'linear(to-br, black, teal.600)' : 'linear(to-tr, red.100, white)'}>
 			<ToggleThemeIcon />

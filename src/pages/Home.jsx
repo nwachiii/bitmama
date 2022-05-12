@@ -52,7 +52,7 @@ export const Home = () => {
 	);
 
 	return (
-		<VStack h='100vh' flexDirection='column' mx='auto' justifyContent='center'>
+		<VStack minH='100vh' flexDirection='column' mx='auto' justifyContent='center'>
 			<Header />
 			<UserDetails
 				onIdle={onIdle}

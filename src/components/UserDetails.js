@@ -19,7 +19,7 @@ import {ActiveSessions} from './ActiveSessions';
 export const UserDetails = (Props) => {
 	const {username, isPrompted, handleLogout, handleStillHere, getTotalActiveTime, getTotalIdleTime} = Props;
 	return (
-		<Wrap spacing='30px' alignSelf='center' alignItems='center'>
+		<Wrap spacing='30px' alignSelf='center' alignItems='center' py={{base: 150, md: 180}}>
 			<WrapItem>
 				{isPrompted() ? (
 					<CustomBox>
@@ -61,15 +61,15 @@ export const UserDetails = (Props) => {
 							Welcome! {username}
 						</Heading>
 
-						<VStack spacing={2} alignItems='left'>
-							<Text>Timeout: {'60 seconds (total time)'}</Text>
-							<Text>Total active time: {msToTime(getTotalActiveTime())}</Text>
+						<VStack maxW={480} spacing={2} alignItems='left'>
+							<Text>Timeout: <strong>{'60 seconds (total time)'}</strong></Text>
+							<Text>Total active time: <strong>{msToTime(getTotalActiveTime())}</strong></Text>
 							{getTotalIdleTime() > 0 ? (
 								<div style={{textAlign: 'center'}}>
 									<Text>
 										Last seen (Total Idle Time):{' '}
 										<strong>
-											<em>{msToTime(getTotalIdleTime(), 'ago')}</em>
+											<i>{msToTime(getTotalIdleTime(), 'ago')}</i>
 										</strong>
 										{}
 									</Text>

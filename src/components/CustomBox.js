@@ -1,18 +1,20 @@
-import React from 'react'
-import { VStack} from '@chakra-ui/react';
+import React from 'react';
+import {VStack} from '@chakra-ui/react';
 
 export const CustomBox = ({children}) => {
-  return (
-    	<VStack
-						py={50}
-						spacing={6}
-						maxW={700}
-						rounded='lg'
-						boxShadow='2xl'
-						borderRadius='lg'
-						px={{base: 3, md: '40px'}}
-						border='1.5px solid lightgray'
-    >{children}</VStack>
-  )
-}
-
+	return (
+		<VStack
+			py={50}
+			w="100%"
+			mx={{base: '1em', md:"auto"}}
+			maxW={700}
+			spacing={6}
+			rounded='lg'
+			boxShadow='2xl'
+			borderRadius='lg'
+			px={{base: 3, md: '40px'}}
+			border='1.5px solid lightgray'>
+			{children}
+		</VStack>
+	);
+};
