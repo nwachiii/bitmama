@@ -49,7 +49,7 @@ export const UserDetails = (Props) => {
 						</Button>
 					</CustomBox>
 				) : (
-					<CustomBox>
+					<CustomBox px="1.2rem">
 						<HStack>
 							<Avatar>
 								<AvatarBadge boxSize='1.25em' bg='green.500' />
@@ -57,16 +57,16 @@ export const UserDetails = (Props) => {
 							<strong>online (active)</strong>
 						</HStack>
 
-						<Heading textAlign='center' as='h3' bgClip='text' bgGradient='linear(to-l, #7928CA, #FF0080)'>
+						<Heading maxW={480} textAlign='center' as='h3' bgClip='text' bgGradient='linear(to-l, #7928CA, #FF0080)'>
 							Welcome, {username}!
 						</Heading>
 
-						<VStack maxW={480} w="100%" spacing={2} alignItems='left'>
-							<Text>Timeout: <strong>{'60 seconds (total time)'}</strong></Text>
+						<VStack  maxW="480px" w="100%" spacing={2} alignItems='left'>
+							<Text >Timeout: <strong>{'60 seconds (total time)'}</strong></Text>
 							<Text>Total active time: <strong>{msToTime(getTotalActiveTime())}</strong></Text>
 							{getTotalIdleTime() > 0 ? (
 								<div style={{textAlign: 'center'}}>
-									<Text>
+									<Text w="100%">
 										Last seen (Total Idle Time):{' '}
 										<strong>
 											<i>{msToTime(getTotalIdleTime(), 'ago')}</i>

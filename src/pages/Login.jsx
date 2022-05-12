@@ -91,7 +91,7 @@ export const Login = () => {
 					color='#FFF'
 					borderRadius='md'
 					bg={theme.brand.blue}
-					onClick={handleSignIn}
+					onClick={!isError && handleSignIn}
 					_hover={{
 						bg     : '#FFF',
 						color  : '#03a438',
